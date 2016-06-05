@@ -147,7 +147,7 @@ function! s:get_candidate_dict(text_object)
 
   " Use ! as much as possible
   exec 'normal! v'
-  exec 'silent! normal '.a:text_object
+  exec 'silent! normal! '.a:text_object
   " The double quote is important
   exec "normal! \<Esc>"
 
@@ -296,7 +296,7 @@ endfunction
 " select mode, do so
 function! s:select_region()
   exec 'normal! v'
-  exec 'normal '.s:candidates[s:cur_index].text_object
+  exec 'normal! '.s:candidates[s:cur_index].text_object
   if expand_region#use_select_mode()
     exec "normal! \<C-g>"
   endif
